@@ -102,10 +102,10 @@ class Controller:
     def create_patient(self, user_id, first_name, last_name, date_of_birth, gender, phone_number, email=''):
         return self.db.create_patient(user_id, first_name, last_name, date_of_birth, gender, phone_number, email)
 
-    def create_doc_category(self, name):
+    def create_doctor_category(self, name):
         return self.db.create_doc_category(name)
 
-    def create_doc_spec(self, name, category_id):
+    def create_doctor_specialization(self, name, category_id):
         return self.db.create_doc_spec(name, category_id)
 
     def create_department(self, name):
@@ -117,7 +117,7 @@ class Controller:
     def create_doctor_min(self, user_id, first_name, last_name, gender):
         return self.db.create_doctor_min(user_id, first_name, last_name, gender)
 
-    def create_slot(self, date_of_slot, time_of_slot, doctor_id):
+    def create_schedule_slot(self, date_of_slot, time_of_slot, doctor_id):
         return self.db.create_slot(date_of_slot, time_of_slot, doctor_id)
 
     def create_service(self, service_name, price, doctor_id):
@@ -172,13 +172,13 @@ class Controller:
         email = email or entity[7]
         return self.db.update_patient(id, user_id, first_name, last_name, date_of_birth, gender, phone_number, email)
 
-    def update_doc_category(self, id, name=None):
+    def update_doctor_category(self, id, name=None):
         entity = self.get_item_by_id(id, 'doctor_category')[0]
         if entity[1] != name:
             return self.db.update_doc_category(id, name)
         return "Nothing to update!"
 
-    def update_doc_spec(self, id, name=None, category_id=None):
+    def update_doctor_specialization(self, id, name=None, category_id=None):
         entity = self.get_item_by_id(id, 'doctor_specialization')[0]
         name = name or entity[1]
         category_id = category_id or entity[2]
@@ -200,7 +200,7 @@ class Controller:
         department_id = department_id or entity[6]
         return self.db.update_doctor(id, user_id, first_name, last_name, gender, specialization_id, department_id)
 
-    def update_slot(self, id, date_of_slot=None, time_of_slot=None, doctor_id=None):
+    def update_schedule_slot(self, id, date_of_slot=None, time_of_slot=None, doctor_id=None):
         entity = self.get_item_by_id(id, 'schedule_slot')[0]
         date_of_slot = date_of_slot or entity[1]
         time_of_slot = time_of_slot or entity[2]

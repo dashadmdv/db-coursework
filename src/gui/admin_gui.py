@@ -65,7 +65,7 @@ class AdminGUI:
 
         def save():
             data = {'_'.join(field.lower().split(' ')): entry.get() for field, entry in inputs.items() if entry.get()}
-            result = getattr(self.controller, f"create_{table}")(**data)
+            result = getattr(self.controller, f"create_{table}")(*data.values())
             messagebox.showinfo("Result", result)
             item_window.destroy()
 

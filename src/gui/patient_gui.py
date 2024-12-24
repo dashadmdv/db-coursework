@@ -57,7 +57,9 @@ class PatientGUI:
 
         self.slot_var = tk.StringVar()
         tk.Label(self.main_frame, text="Select Slot ID:").pack(pady=5)
-        tk.Entry(self.main_frame, textvariable=self.slot_var).pack(pady=5)
+
+        options = [str(slot[0]) for slot in slots]
+        tk.OptionMenu(self.main_frame, self.slot_var, *options).pack(pady=5)
 
         tk.Button(self.main_frame, text="Next", command=self.select_service, width=20).pack(pady=5)
         tk.Button(self.main_frame, text="Back", command=self.create_main_menu, width=20).pack(pady=5)
@@ -85,7 +87,8 @@ class PatientGUI:
 
         self.service_var = tk.StringVar()
         tk.Label(self.main_frame, text="Select Service ID:").pack(pady=5)
-        tk.Entry(self.main_frame, textvariable=self.service_var).pack(pady=5)
+        options = [str(service[0]) for service in services]
+        tk.OptionMenu(self.main_frame, self.service_var, *options).pack(pady=5)
 
         tk.Button(self.main_frame, text="Confirm", command=lambda: self.confirm_appointment(slot_id), width=20).pack(pady=5)
         tk.Button(self.main_frame, text="Back", command=self.get_appointment, width=20).pack(pady=5)

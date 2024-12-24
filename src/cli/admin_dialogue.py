@@ -254,8 +254,8 @@ class AdminCLI:
                 return
         name = input("Input doctor category name: ")
         if update:
-            return self.controller.update_doc_category(it_id, name)
-        return self.controller.create_doc_category(name)
+            return self.controller.update_doctor_category(it_id, name)
+        return self.controller.create_doctor_category(name)
 
     def create_doc_spec(self, update=False):
         if update:
@@ -269,8 +269,8 @@ class AdminCLI:
         if category_id == 0:
             return
         if update:
-            return self.controller.update_doc_spec(it_id, name, category_id)
-        return self.controller.create_doc_spec(name, category_id)
+            return self.controller.update_doctor_specialization(it_id, name, category_id)
+        return self.controller.create_doctor_specialization(name, category_id)
 
     def create_department(self, update=False):
         if update:
@@ -306,8 +306,8 @@ class AdminCLI:
         if doctor_id == 0:
             return
         if update:
-            return self.controller.update_slot(it_id, date_of_slot, time_of_slot, doctor_id)
-        return self.controller.create_slot(date_of_slot, time_of_slot, doctor_id)
+            return self.controller.update_schedule_slot(it_id, date_of_slot, time_of_slot, doctor_id)
+        return self.controller.create_schedule_slot(date_of_slot, time_of_slot, doctor_id)
 
     def create_service(self, update=False):
         if update:
