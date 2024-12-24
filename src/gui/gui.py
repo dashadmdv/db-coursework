@@ -6,9 +6,6 @@ from gui.doctor_gui import DoctorGUI
 from gui.patient_gui import PatientGUI
 from src.controller.controller import Controller
 from tkcalendar import Calendar, DateEntry
-# from src.gui.admin_dialogue import AdminGUI
-# from src.gui.doctor_dialogue import DoctorGUI
-# from src.gui.patient_dialogue import PatientGUI
 
 class GUI:
     def __init__(self, root):

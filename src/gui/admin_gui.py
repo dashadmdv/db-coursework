@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import messagebox, simpledialog
+from tkinter import messagebox, simpledialog, ttk
+
 
 class AdminGUI:
     def __init__(self, controller):
@@ -48,16 +49,29 @@ class AdminGUI:
         tk.Button(frame, text="Back", command=back).pack(fill="x")
 
     def show_table(self, table):
+        table_idx = self.tables.index(table)
+        columns = self.fields[table_idx]
         data = self.controller.get_table(table)
         if not data:
             messagebox.showinfo("Info", f"No data available for table {table}.")
             return
 
-        table_window = tk.Toplevel(self.root)
-        table_window.title(f"Table: {table}")
+        # table_window = tk.Toplevel(self.root)
+        # table_window.title(f"Table: {table}")
+        #
+        # for i, row in enumerate(data):
+        #     tk.Label(table_window, text=row).grid(row=i, column=0, sticky="w")
 
-        for i, row in enumerate(data):
-            tk.Label(table_window, text=row).grid(row=i, column=0, sticky="w")
+        main_frame = tk.Tk()
+
+        tree = ttk.Treeview(main_frame, columns=columns, show="headings")
+        for col in columns:
+            tree.heading(col, text=col.capitalize())
+
+        for item in data:
+            tree.insert("", tk.END, values=item)
+
+        tree.pack(fill=tk.BOTH, expand=True, pady=10)
 
     def create_item(self, table):
         fields = self.fields[self.tables.index(table)]
