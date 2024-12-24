@@ -57,11 +57,11 @@ VALUES (4, 'Ivan', 'Ivanov', 'Male', 1, 3),
        (12, 'Oleg', 'Olegov', 'Male', 5, 2);
 
 INSERT INTO schedule_slot (date_of_slot, time_of_slot, doctor_id)
-VALUES ('2023-10-01', '16:00:00', 5), ('2023-10-02', '16:00:00', 1),
-       ('2023-10-03', '16:00:00', 4), ('2023-10-04', '16:00:00', 2),
-       ('2023-10-05', '16:00:00', 3), ('2023-10-06', '16:00:00', 3),
-       ('2023-10-07', '16:00:00', 2), ('2023-10-08', '16:00:00', 4),
-       ('2023-10-09', '16:00:00', 1), ('2023-10-10', '16:00:00', 5);
+VALUES ('2024-12-11', '16:00:00', 5), ('2024-12-12', '16:00:00', 1),
+       ('2024-12-13', '16:00:00', 4), ('2024-12-14', '16:00:00', 2),
+       ('2024-12-15', '16:00:00', 3), ('2024-12-16', '16:00:00', 3),
+       ('2024-12-17', '16:00:00', 2), ('2024-12-18', '16:00:00', 4),
+       ('2024-12-19', '16:00:00', 1), ('2024-12-20', '16:00:00', 5);
 
 INSERT INTO service (service_name, price, doctor_id)
 VALUES ('Consultation', 200.00, 1), ('Consultation', 200.00, 2),
@@ -82,9 +82,9 @@ VALUES ('COVID-19', 'U071'), ('Chest pain, unspecified', 'R079'),
        ('Vitamin D deficiency, unspecified', 'E55.9'), ('Cough', 'R05');
 
 INSERT INTO prescription (note, appointment_id)
-VALUES ('Rest until 23.10. Ibuprofen twice a day', 2),
-       ('Rest until 30.10. Vitamin D twice a day', 7),
-       ('Hospitalization until 10.11', 10);
+VALUES ('Rest until 23.12. Ibuprofen twice a day', 2),
+       ('Rest until 30.12. Vitamin D twice a day', 7),
+       ('Hospitalization until 10.12', 10);
 
 INSERT INTO patient_diagnosis (patient_id, diagnosis_id)
 VALUES (4, 5), (2, 3), (1, 1), (1, 2), (1, 3), (6, 4);
