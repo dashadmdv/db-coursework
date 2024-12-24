@@ -2,6 +2,7 @@ CREATE INDEX idx_role_id ON role (id);
 CLUSTER role USING idx_role_id;
 
 CREATE INDEX idx_user_acc_id ON user_acc (id);
+CREATE INDEX idx_user_acc_username ON user_acc (username);
 CLUSTER user_acc USING idx_user_acc_id;
 
 CREATE INDEX idx_user_activity_id ON user_activity (id);
